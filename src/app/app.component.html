@@ -1,0 +1,30 @@
+<div class="container h-100 p-4">
+  <div class="card">
+    <div class="card-header">
+      <div *ngIf="pageCount === 0" class="text-center">
+        <label style="text-align : center" class="label-info"> String Interpolation Example</label>
+      </div>
+      <div *ngIf="pageCount === 1" class="text-center">
+        <label style="text-align : center" class="label-info"> Property Binding Example</label>
+      </div>
+    </div>
+    <div class="card-body">
+      <div *ngIf="pageCount === 0" class="col-lg-12 d-flex align-items-stretch">
+        <h3>{{'Test String 1'}} - {{ cntString }}</h3>
+      </div>
+
+      <div *ngIf="pageCount === 1" class="col-lg-12 d-flex align-items-stretch">
+        <h3 [style.background]="red">Style property binding</h3>
+        <br class="break" />
+        <span class="fullname" [innerText]="inntertextBind"></span>
+        <a [href]="link" [target]="target">href link property binding</a>
+      </div>
+    </div>
+    <div class="card-footer center">
+      <ul class="pagination pagination-lg">
+        <li class="page-item"><a class="page-link" href="#" (click)="pageCount ? (pageCount = pageCount - 1) : pageCount = 0">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#" (click)="pageCount = pageCount + 1">Next</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
